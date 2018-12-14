@@ -46,4 +46,13 @@ class Merchant
     SqlRunner.run(sql, values)
   end
 
+  def tags
+    sql = "SELECT MIN(t.id), t.type FROM tags t
+          INNER JOIN purchases p ON t.id = p.tag_id
+          WHERE merchant_id = $1 GROUP BY t.type"
+    values = [@id]
+    tags = SqlRunner.run(sql, values)
+    return tags.map{|tag| Tag.new(tag)}
+  end
+
 end

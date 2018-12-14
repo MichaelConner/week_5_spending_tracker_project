@@ -44,6 +44,8 @@ purchase6 = Purchase.new('merchant_id' => merchant5.id, 'tag_id' => tag4.id, 'am
 purchase6.save
 purchase7 = Purchase.new('merchant_id' => merchant6.id, 'tag_id' => tag5.id, 'amount' => 150)
 purchase7.save
+purchase8 = Purchase.new('merchant_id' => merchant3.id, 'tag_id' => tag5.id, 'amount' => 150)
+purchase8.save
 
 #TESTS
 
@@ -61,3 +63,11 @@ purchase7.save
 # purchase2.amount = 30.99
 # purchase2.update
 # p Purchase.find_by_id(95)
+
+# p merchant1.tags
+# p merchant2.tags
+# p merchant3.tags
+
+# p tag1.merchants
+# p tag2.merchants
+# p tag3.merchants

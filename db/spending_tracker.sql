@@ -1,4 +1,3 @@
-DROP TABLE users_purchases;
 DROP TABLE purchases;
 DROP TABLE tags;
 DROP TABLE merchants;
@@ -30,11 +29,4 @@ CREATE TABLE users
   id SERIAL4 PRIMARY KEY,
   name VARCHAR(255),
   budget DECIMAL(9,2)
-);
-
-CREATE TABLE users_purchases
-(
-  id SERIAL4 PRIMARY KEY,
-  user_id INT8 REFERENCES users(id) ON DELETE CASCADE,
-  purchase_id INT8 REFERENCES purchases(id) ON DELETE CASCADE
 );

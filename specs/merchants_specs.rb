@@ -1,7 +1,6 @@
 require('minitest/autorun')
 require('minitest/rg')
 
-
 require_relative('../models/merchants')
 
 class MerchantsTest < MiniTest::Test
@@ -53,11 +52,8 @@ class MerchantsTest < MiniTest::Test
   #
   # end
 
-
-
-
-
-
-
+  # def test_find_tags
+  #
+  # end
 
 end
