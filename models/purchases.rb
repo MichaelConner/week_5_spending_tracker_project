@@ -2,17 +2,19 @@ require_relative('../db/sql_runner')
 
 class Purchase
 
-  attr_accessor :amount
+  attr_accessor :merchant_id, :tag_id, :amount
   attr_reader :id
 
   def initialize(options)
     @id = options['id'].to_i if options['id']
+    @merchant_id = options['merchant_id']
+    @tag_id = options['tag_id']
     @amount = options['amount'].to_f
   end
 
   def save
-    sql = "INSERT INTO purchases (amount) VALUES ($1) RETURNING id"
-    values = [@amount]
+    sql = "INSERT INTO purchases (merchant_id, tag_id, amount) VALUES ($1, $2, $3) RETURNING id"
+    values = [@merchant_id ,@tag_id , @amount]
     @id = SqlRunner.run(sql, values)[0]['id'].to_i
   end
 
@@ -34,15 +36,15 @@ class Purchase
     SqlRunner.run(sql)
   end
 
-  def self.delete_by_id(id)
+  def delete
     sql = "DELETE FROM purchases WHERE id = $1"
-    values = [id]
+    values = [@id]
     SqlRunner.run(sql, values)
   end
 
   def update
-    sql = "UPDATE purchases SET name = $1 WHERE id = $2"
-    values = [@name, @id]
+    sql = "UPDATE purchases SET (merchant_id, tag_id, amount) = ($1, $2, $3) WHERE id = $4"
+    values = [@merchant_id, @tag_id, @amount, @id]
     SqlRunner.run(sql, values)
   end
 

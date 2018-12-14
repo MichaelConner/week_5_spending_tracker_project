@@ -43,7 +43,7 @@ class MerchantsTest < MiniTest::Test
     assert_equal([], Merchant.find_all)
   end
 
-  # def test_can_delete_one_merchant_by_id
+  # def test_can_delete_one_merchant
   #   @merchant2.save
   #   Merchant.delete_by_id(@merchant2.id)
   #   assert_true(,)

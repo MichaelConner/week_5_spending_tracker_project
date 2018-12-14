@@ -42,7 +42,7 @@ class PurchasesTest < MiniTest::Test
     assert_equal([], Purchase.find_all)
   end
 
-  # def test_can_delete_one_purchase_by_id
+  # def test_can_delete_one_purchase
   #   @purchase2.save
   #   Purchase.delete_by_id(@purchase2.id)
   #   assert_true(,)
