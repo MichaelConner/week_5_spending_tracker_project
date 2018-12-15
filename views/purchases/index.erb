@@ -1,2 +1,11 @@
 <h1>Purchases</h1>
 <a href="/purchases/new">New purchase</a>
+
+<ul>
+
+  <% for purchase in @purchases %>
+  <h3><a href="/purchases/<%= purchase.id %>"><%= purchase.id %></a></h3>
+  <li><p><%= purchase.tag.type %> from <%= purchase.merchant.name %> for £<%= purchase.amount %> </p></li>
+
+  <% end %>
+</ul>

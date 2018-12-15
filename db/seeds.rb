@@ -71,3 +71,6 @@ purchase8.save
 # p tag1.merchants
 # p tag2.merchants
 # p tag3.merchants
+
+# p purchase1.merchant
+# p purchase1.tag

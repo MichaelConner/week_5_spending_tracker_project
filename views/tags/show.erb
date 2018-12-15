@@ -1,0 +1,8 @@
+<p>Tag: <%= @tag.type %></p>
+
+<p><a href="/tags/<%= @tag.id %>/edit">Edit</a></p>
+<p>
+  <form action="/tags/<%= @tag.id %>/delete" method="post">
+  <input type="submit" value="delete" />
+  </form>
+</p>

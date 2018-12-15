@@ -1,0 +1,28 @@
+<h1>Edit Purchase</h1>
+
+<form action="/purchases/<%=@purchase.id%>" method="post">
+
+  <label>
+    Merchant:
+    <select name="merchant_id" selected= "<%= @purchase.merchant.name%>">
+      <% for merchant in @merchants %>
+      <option value="<%= merchant.id %>"><%= merchant.name %></option>
+      <% end %>
+    </select>
+  </label>
+
+  <label>
+    Tag:
+    <select name="tag_id" selected= "<%= @purchase.tag.type%>">
+      <% for tag in @tags %>
+      <option value="<%= tag.id %>"><%= tag.type %></option>
+      <% end %>
+    </select>
+  </label>
+
+  <label for="amount">Amount:</label>
+    <input type="text" name="amount" id="purchase.amount" value="<%= @purchase.amount %>"/>
+
+    <input type="submit" value="submit changes" />
+
+</form>

@@ -1,2 +1,11 @@
 <h1>Tags</h1>
 <a href="/tags/new">New tag</a>
+
+<ul>
+
+  <% for tag in @tags %>
+  <h3><a href="/tags/<%= tag.id %>"><%= tag.id %></a></h3>
+  <li><p><%= tag.type %></p></li>
+
+  <% end %>
+</ul>

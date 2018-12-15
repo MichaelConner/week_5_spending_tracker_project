@@ -8,24 +8,38 @@ require_relative('../models/tags.rb')
 also_reload( '../models/*' )
 
 get '/merchants' do
-  # @bitings = Biting.all
-  # @actions = Action.all
+  @merchants = Merchant.find_all
   erb ( :"merchants/index" )
 end
 
+post '/merchants' do
+  merchant = Merchant.new(params)
+  merchant.save
+  redirect to("/merchants")
+end
+
 get '/merchants/new' do
-  # @victims = Victim.all
-  # @zombies = Zombie.all
+  @merchants = Merchant.find_all
   erb(:"merchants/new")
 end
-#
-# post '/bitings' do
-#   biting = Biting.new(params)
-#   biting.save
-#   redirect to("/bitings")
-# end
-#
-# post '/bitings/:id/delete' do
-#   Biting.destroy(params[:id])
-#   redirect to("/bitings")
-# end
+
+get '/merchants/:id' do
+  @merchant = Merchant.find_by_id(params[:id])
+  erb(:"merchants/show")
+end
+
+post '/merchants/:id' do
+  merchant = Merchant.new(params)
+  merchant.update
+  redirect to "/merchants/#{params['id']}"
+end
+
+get '/merchants/:id/edit' do
+  @merchant = Merchant.find_by_id(params[:id])
+  erb(:"merchants/edit")
+end
+
+post '/merchants/:id/delete' do
+  Merchant.delete_by_id(params[:id])
+  redirect to("/merchants")
+end

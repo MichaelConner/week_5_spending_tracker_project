@@ -1,1 +1,27 @@
-<h1>This page will elt you add a new purchase</h1>
+<h1>This page will let you add a new purchase</h1>
+
+<form action="/purchases" method="post">
+
+  <label>
+  Select a merchant:
+    <select name="merchant_id">
+      <% for merchant in @merchants %>
+      <option value="<%= merchant.id %>"><%= merchant.name %></option>
+      <% end %>
+    </select>
+  </label>
+
+  <label>
+    Select a tag:
+    <select name="tag_id">
+      <% for tag in @tags %>
+      <option value="<%= tag.id %>"><%= tag.type %></option>
+      <% end %>
+    </select>
+  </label>
+
+  <label for="amount">Add an amount:</label>
+  <input type="text" name="amount" id="amount"/>
+
+  <input type='submit' value="Add purchase">
+</form>

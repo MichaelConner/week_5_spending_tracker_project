@@ -36,6 +36,12 @@ class Purchase
     SqlRunner.run(sql)
   end
 
+  def self.delete_by_id(id)
+    sql = "DELETE FROM purchases WHERE id =$1"
+    values = [id]
+    SqlRunner.run(sql, values)
+  end
+
   def delete
     sql = "DELETE FROM purchases WHERE id = $1"
     values = [@id]
@@ -46,6 +52,22 @@ class Purchase
     sql = "UPDATE purchases SET (merchant_id, tag_id, amount) = ($1, $2, $3) WHERE id = $4"
     values = [@merchant_id, @tag_id, @amount, @id]
     SqlRunner.run(sql, values)
+  end
+
+  def merchant()
+    sql = "SELECT * FROM merchants
+    WHERE id = $1"
+    values = [@merchant_id]
+    merchant = SqlRunner.run(sql, values)[0]
+    return Merchant.new(merchant)
+  end
+
+  def tag()
+    sql = "SELECT * FROM tags
+    WHERE id = $1"
+    values = [@tag_id]
+    tag = SqlRunner.run(sql, values)[0]
+    return Tag.new(tag)
   end
 
 end
