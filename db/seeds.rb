@@ -123,7 +123,7 @@ user2.save
 
 # p Purchase.find_by_year_and_month('2018', '09')
 # p Purchase.find_by_year_and_month('2018', '10')
-
+#
 # p Purchase.find_by_merchant('asda')
 # p Purchase.find_by_merchant('vodafone')
 #
@@ -135,7 +135,7 @@ user2.save
 #
 # p Purchase.sum_all_tag('utility')
 # p Purchase.sum_all_tag('rent')
-
+#
 # p Purchase.sum_all
 
  # p merchant1.name_to_title_case

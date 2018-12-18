@@ -18,7 +18,7 @@ class User
   end
 
   def self.find_all
-    sql = "SELECT * FROM users"
+    sql = "SELECT * FROM users ORDER BY id ASC"
     users = SqlRunner.run(sql)
     return users.map{|user| User.new(user)}
   end

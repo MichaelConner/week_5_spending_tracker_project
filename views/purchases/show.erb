@@ -1,5 +1,5 @@
-<p>Tag: <%= @purchase.tag.type %></p>
-<p>Merchant: <%= @purchase.merchant.name %></p>
+<p>Tag: <%= @purchase.tag.type_to_title_case %></p>
+<p>Merchant: <%= @purchase.merchant.name_to_title_case %></p>
 <p> Amount: £<%= @purchase.amount %> </p>
 
 <p><a href="/purchases/<%= @purchase.id %>/edit">Edit</a></p>

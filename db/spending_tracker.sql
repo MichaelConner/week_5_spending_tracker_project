@@ -21,7 +21,7 @@ CREATE TABLE purchases
   merchant_id INT8 REFERENCES merchants(id) ON DELETE CASCADE,
   tag_id INT8 REFERENCES tags(id) ON DELETE CASCADE,
   amount DECIMAL(14,2),
-  purchase_date DATE
+  purchase_date DATE DEFAULT CURRENT_DATE 
 );
 
 CREATE TABLE users

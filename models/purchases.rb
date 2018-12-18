@@ -20,7 +20,7 @@ class Purchase
   end
 
   def self.find_all
-    sql = "SELECT * FROM purchases"
+    sql = "SELECT * FROM purchases ORDER BY id ASC"
     purchases = SqlRunner.run(sql)
     return purchases.map{|purchase| Purchase.new(purchase)}
   end

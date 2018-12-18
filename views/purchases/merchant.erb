@@ -7,7 +7,7 @@
 <form action="/purchases/merchant/:merchant" method="get">
   <select name="merchant_name">
     <% for merchant in @merchants %>
-    <option value="<%= merchant.name %>"><%= merchant.name %></option>
+    <option value="<%= merchant.name %>"><%= merchant.name_to_title_case %></option>
     <% end %>
   </select>
   <input type='submit' value="filter by merchant">
@@ -17,7 +17,7 @@
 <form action="/purchases/tag/:tag" method="get">
   <select name="tag_type">
     <% for tag in @tags %>
-    <option value="<%= tag.type %>"><%= tag.type %></option>
+    <option value="<%= tag.type %>"><%= tag.type_to_title_case %></option>
     <% end %>
   </select>
   <input type='submit' value="filter by tag">
@@ -41,8 +41,8 @@
   <% for purchase in @purchases %>
     <tr>
       <td><a href="/purchases/<%= purchase.id %>"><%= purchase.id %></a></td>
-      <td><%= purchase.merchant.name %></td>
-      <td><%= purchase.tag.type %></td>
+      <td><%= purchase.merchant.name_to_title_case %></td>
+      <td><%= purchase.tag.type_to_title_case %></td>
       <td>£<%= purchase.amount %></td>
       <td><%= purchase.purchase_date %></td>
     </tr>
