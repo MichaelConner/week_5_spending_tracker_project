@@ -7,3 +7,14 @@ body {
 a {
   color: inherit;
 }
+
+.flex-container {
+  padding: 1;
+  margin:1;
+  display: flex;
+  background: black;
+}
+
+.flex-item {
+  color: white;
+}

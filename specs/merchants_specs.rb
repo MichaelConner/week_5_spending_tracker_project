@@ -23,12 +23,12 @@ class MerchantsTest < MiniTest::Test
     assert_equal(true, @merchant1.id > 0)
   end
 
-  # def test_can_find_all_merchants
-  #   Merchant.delete_all
-  #   @merchant1.save
-  #   @merchant2.save
-  #   assert_equal([@merchant1, @merchant2], Merchant.find_all)
-  # end
+  def test_can_find_all_merchants
+    Merchant.delete_all
+    @merchant1.save
+    @merchant2.save
+    assert_equal([@merchant1, @merchant2], Merchant.find_all)
+  end
   #
   # def test_can_find_one_merchant_by_id
   #   Merchant.delete_all
