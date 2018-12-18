@@ -11,10 +11,10 @@
         </tr>
         <% for purchase in @purchases %>
         <tr>
-          <td><a href="/purchases/<%= purchase.id %>"><%= purchase.id %></a></td>
+          <td><%= purchase.id %></td>
           <td><%= purchase.merchant.name_to_title_case %></td>
           <td><%= purchase.tag.type_to_title_case %></td>
-          <td>£<%= purchase.amount %></td>
+          <td><a href="/purchases/<%= purchase.id %>">£<%= purchase.amount %></a></td>
           <td><%= purchase.purchase_date %></td>
         </tr>
         <% end %>

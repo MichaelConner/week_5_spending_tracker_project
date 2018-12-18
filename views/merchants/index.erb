@@ -9,8 +9,8 @@
 
         <% for merchant in @merchants %>
           <tr>
-            <td><a href="/merchants/<%= merchant.id %>"><%= merchant.id %></a></td>
-            <td><%= merchant.name_to_title_case %></td>
+            <td><%= merchant.id %></td>
+            <td><a href="/merchants/<%= merchant.id %>"><%= merchant.name_to_title_case %></a></td>
           </tr>
         <% end %>
     </table>

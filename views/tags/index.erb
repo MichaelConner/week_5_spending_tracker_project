@@ -11,8 +11,8 @@
 
       <% for tag in @tags %>
         <tr>
-          <td><a href="/tags/<%= tag.id %>"><%= tag.id %></a></td>
-          <td><%= tag.type_to_title_case %></td>
+          <td><%= tag.id %></td>
+          <td><a href="/tags/<%= tag.id %>"><%= tag.type_to_title_case %></a></td>
         </tr>
       <% end %>
     </table>

@@ -8,17 +8,17 @@ Purchase.delete_all
 Tag.delete_all
 Merchant.delete_all
 
-merchant1 = Merchant.new('name' => 'asda')
+merchant1 = Merchant.new('name' => 'Asda')
 merchant1.save
-merchant2 = Merchant.new('name' => 'vodafone')
+merchant2 = Merchant.new('name' => 'Vodafone')
 merchant2.save
-merchant3 = Merchant.new('name' => 'bt')
+merchant3 = Merchant.new('name' => 'BT')
 merchant3.save
 merchant4 = Merchant.new('name' => 'bank of scotland')
 merchant4.save
-merchant5 = Merchant.new('name' => 'lush')
+merchant5 = Merchant.new('name' => 'Cire Trudon')
 merchant5.save
-merchant6 = Merchant.new('name' => 'scottish gas')
+merchant6 = Merchant.new('name' => 'Scottish gas')
 merchant6.save
 
 tag1 = Tag.new('type' => 'food')
