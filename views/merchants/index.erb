@@ -1,11 +1,20 @@
 <h1>Merchants</h1>
 <a href="/merchants/new">New merchant</a>
 
-<ul>
+<p>
+
+<table>
+
+  <tr>
+    <th>No.</th>
+    <th>Merchant</th>
+  </tr>
 
   <% for merchant in @merchants %>
-  <h3><a href="/merchants/<%= merchant.id %>"><%= merchant.id %></a></h3>
-  <li><p><%= merchant.name %></p></li>
-
+    <tr>
+      <td><a href="/merchants/<%= merchant.id %>"><%= merchant.id %></a></td>
+      <td><%= merchant.name %></td>
+    </tr>
   <% end %>
-</ul>
+
+</table>

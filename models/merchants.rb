@@ -61,4 +61,8 @@ class Merchant
     return tags.map{|tag| Tag.new(tag)}
   end
 
+  def name_to_title_case
+    @name.split(" ").map {|word| word.capitalize}.join(" ")
+  end
+
 end

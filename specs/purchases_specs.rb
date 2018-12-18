@@ -6,8 +6,8 @@ require_relative('../models/purchases')
 class PurchasesTest < MiniTest::Test
 
   def setup
-    @purchase1 = Purchase.new('merchant_id' => 1, 'tag_id' => 2, 'amount' => 50.02)
-    @purchase2 = Purchase.new('merchant_id' => 3, 'tag_id' => 4, 'amount' => 87.97)
+    @purchase1 = Purchase.new('merchant_id' => 1, 'tag_id' => 2, 'amount' => 50.02, 'purchase_date' => 20180901)
+    @purchase2 = Purchase.new('merchant_id' => 3, 'tag_id' => 4, 'amount' => 87.97, 'purchase_date' => 20180901)
   end
 
   def test_purchase_has_amount
@@ -20,6 +20,10 @@ class PurchasesTest < MiniTest::Test
 
   def test_purchase_has_tag_id
     assert_equal(2, @purchase1.tag_id)
+  end
+
+  def test_purchase_has_purchase_date
+    assert_equal(20180901, @purchase1.purchase_date)
   end
 
   def test_purchase_has_id__false

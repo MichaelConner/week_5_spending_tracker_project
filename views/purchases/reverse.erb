@@ -44,25 +44,8 @@
     </tr>
   <% end %>
 
+  <tr>
+    <td>Total: £<%= Purchase.sum_all %></td>
+  </tr>
+
 </table>
-
-
-<p>
-<p>
-<p>
-<p>
-<p>
-
-
-  <table>
-    <tr>
-      <th>Budget</th>
-      <th>Amount Spent</th>
-      <th>Amount Left</th>
-    </tr>
-    <tr>
-      <td>£<%= @user.budget %></td>
-      <td>£<%= Purchase.sum_all %></td>
-      <td>£<%= (@user.budget.to_f) - (Purchase.sum_all.to_f)  %></td>
-    </tr>
-  </table>

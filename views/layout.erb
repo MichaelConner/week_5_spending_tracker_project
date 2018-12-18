@@ -7,19 +7,20 @@
   </head>
 
   <body>
+
+    <nav>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/users">Dashboard</a></li>
+        <li><a href="/merchants">Merchants</a></li>
+        <li><a href="/purchases">Purchases</a></li>
+        <li><a href="/tags">Tags</a></li>
+      </ul>
+    </nav>
+
     <main>
-
-      <nav>
-        <ul>
-          <li><a href="/">Dashboard</a></li>
-          <li><a href="/merchants">Merchants</a></li>
-          <li><a href="/purchases">Purchases</a></li>
-          <li><a href="/tags">Tags</a></li>
-        </ul>
-      </nav>
-
       <%= yield %>
-
     </main>
+
   </body>
 </html>

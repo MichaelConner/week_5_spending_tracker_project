@@ -4,6 +4,7 @@ require('pry')
 require_relative('../models/merchants.rb')
 require_relative('../models/purchases.rb')
 require_relative('../models/tags.rb')
+require_relative('../models/users.rb')
 
 also_reload( '../models/*' )
 

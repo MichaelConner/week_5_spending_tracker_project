@@ -6,7 +6,11 @@
     Merchant:
     <select name="merchant_id" selected= "<%= @purchase.merchant.name%>">
       <% for merchant in @merchants %>
-      <option value="<%= merchant.id %>"><%= merchant.name %></option>
+        <% if merchant.name == @purchase.merchant.name %>
+            <option value=<%= merchant.id %> selected><%= @purchase.merchant.name %></option>
+        <% else %>
+            <option value=<%= merchant.id %>><%= @purchase.merchant.name%> </option>
+        <% end %>
       <% end %>
     </select>
   </label>
@@ -15,7 +19,11 @@
     Tag:
     <select name="tag_id" selected= "<%= @purchase.tag.type%>">
       <% for tag in @tags %>
-      <option value="<%= tag.id %>"><%= tag.type %></option>
+        <% if tag.type == @purchase.tag.type %>
+            <option value=<%= tag.id %> selected><%= @purchase.tag.type %></option>
+        <% else %>
+            <option value=<%= tag.id %>><%= @purchase.tag.type%></option>
+        <% end %>
       <% end %>
     </select>
   </label>

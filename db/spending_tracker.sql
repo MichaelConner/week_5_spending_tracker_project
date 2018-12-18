@@ -20,13 +20,13 @@ CREATE TABLE purchases
   id SERIAL4 PRIMARY KEY,
   merchant_id INT8 REFERENCES merchants(id) ON DELETE CASCADE,
   tag_id INT8 REFERENCES tags(id) ON DELETE CASCADE,
-  amount DECIMAL(9,2),
-  purchase_time TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
+  amount DECIMAL(14,2),
+  purchase_date DATE
 );
 
 CREATE TABLE users
 (
   id SERIAL4 PRIMARY KEY,
   name VARCHAR(255),
-  budget DECIMAL(9,2)
+  budget DECIMAL(14,2)
 );
