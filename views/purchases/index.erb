@@ -1,68 +1,65 @@
-<h1>Purchases</h1>
-<a href="/purchases/new">New purchase</a>
-<p><a href="/purchases">sort by oldest</a>
-<p><a href="/purchases/reverse">sort by newest</a>
+<ul class = "flex-main">
+  <li class="flex-info">
+    <h1>Purchases</h1>
+      <table>
+        <tr>
+          <th>Payment No.</th>
+          <th>Merchant</th>
+          <th>Tag</th>
+          <th>Amount</th>
+          <th>Purchase date</th>
+        </tr>
+        <% for purchase in @purchases %>
+        <tr>
+          <td><a href="/purchases/<%= purchase.id %>"><%= purchase.id %></a></td>
+          <td><%= purchase.merchant.name_to_title_case %></td>
+          <td><%= purchase.tag.type_to_title_case %></td>
+          <td>£<%= purchase.amount %></td>
+          <td><%= purchase.purchase_date %></td>
+        </tr>
+        <% end %>
+      </table>
+  </li>
 
-<p>
-<form action="/purchases/merchant/:merchant" method="get">
-  <select name="merchant_name">
-    <% for merchant in @merchants %>
-    <option value="<%= merchant.name %>"><%= merchant.name_to_title_case %></option>
-    <% end %>
-  </select>
-  <input type='submit' value="filter by merchant">
-</form>
+  <li class="flex-actions">
+    <table>
+      <tr>
+        <th>Budget</th>
+        <th>Amount Spent</th>
+        <th>Amount Left</th>
+      </tr>
+      <tr>
+        <td>£<%= @user.budget %></td>
+        <td>£<%= Purchase.sum_all %></td>
+        <td>£<%= (@user.budget).to_f - (Purchase.sum_all).to_f  %></td>
+      </tr>
+    </table>
 
-<p>
-<form action="/purchases/tag/:tag" method="get">
-  <select name="tag_type">
-    <% for tag in @tags %>
-    <option value="<%= tag.type %>"><%= tag.type_to_title_case %></option>
-    <% end %>
-  </select>
-  <input type='submit' value="filter by tag">
-</form>
+    <p>
 
-<p>
+    <a href="/purchases/new">New purchase</a>
+    <p><a href="/purchases">sort by oldest</a>
+    <p><a href="/purchases/reverse">sort by newest</a>
 
-  <table>
-    <tr>
-      <th>Payment No.</th>
-      <th>Merchant</th>
-      <th>Tag</th>
-      <th>Amount</th>
-      <th>Purchase date</th>
-    </tr>
+    <p>
 
-  <% for purchase in @purchases %>
-    <tr>
-      <td><a href="/purchases/<%= purchase.id %>"><%= purchase.id %></a></td>
-      <td><%= purchase.merchant.name_to_title_case %></td>
-      <td><%= purchase.tag.type_to_title_case %></td>
-      <td>£<%= purchase.amount %></td>
-      <td><%= purchase.purchase_date %></td>
-    </tr>
-  <% end %>
+    <form action="/purchases/merchant/:merchant" method="get">
+      <select name="merchant_name">
+        <% for merchant in @merchants %>
+        <option value="<%= merchant.name %>"><%= merchant.name_to_title_case %></option>
+        <% end %>
+      </select>
+      <input type='submit' value="filter by merchant">
+    </form>
 
-</table>
-
-
-<p>
-<p>
-<p>
-<p>
-<p>
-
-
-  <table>
-    <tr>
-      <th>Budget</th>
-      <th>Amount Spent</th>
-      <th>Amount Left</th>
-    </tr>
-    <tr>
-      <td>£<%= @user.budget %></td>
-      <td>£<%= Purchase.sum_all %></td>
-      <td>£<%= (@user.budget).to_f - (Purchase.sum_all).to_f  %></td>
-    </tr>
-  </table>
+    <p>
+      <form action="/purchases/tag/:tag" method="get">
+        <select name="tag_type">
+          <% for tag in @tags %>
+          <option value="<%= tag.type %>"><%= tag.type_to_title_case %></option>
+          <% end %>
+        </select>
+        <input type='submit' value="filter by tag">
+      </form>
+  </li>
+</ul>

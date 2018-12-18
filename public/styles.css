@@ -1,6 +1,6 @@
 body {
-  background-color: #212B91;
-  color: #FFFFFF;
+  background-color: #517664;
+  color: #FCEFEF;
   font-family: 'garamond', serif;
 }
 
@@ -18,27 +18,42 @@ ul {
 }
 
 .flex-ul {
-  background: black;
-  color: white;
+  background: #08090A;
+  color: #FCEFEF;
+  border-color: #FCEFEF;
+  border-width: thin;
   width: 100%;
   height: 100%;
   margin-top: 10px;
   margin-bottom: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
-
   font-weight: bold;
   font-size: 1.5em;
   text-align: center;
 }
 
+.flex-main {
+  display: flex;
+  justify-content: space-around;
+}
+
 .flex-info {
   display: flex;
+  width: 70%;
+  height: 100%;
   flex-direction: column;
-  background: green;
+  justify-content: flex-start;
+  background: #FCEFEF;
+  color: #08090A;
+  text-align: left;
 }
 
 .flex-actions {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  width: 29%;
+  background: #93A8AC;
+  color: #08090A;
 }

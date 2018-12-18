@@ -1,20 +1,24 @@
-<h1>Tags</h1>
-<a href="/tags/new">New tag</a>
+<ul class = "flex-main">
+  <li class="flex-info">
+    <h1>Tags</h1>
 
-<p>
+    <table>
 
-<table>
+      <tr>
+        <th>No.</th>
+        <th>Tag</th>
+      </tr>
 
-  <tr>
-    <th>No.</th>
-    <th>Tag</th>
-  </tr>
+      <% for tag in @tags %>
+        <tr>
+          <td><a href="/tags/<%= tag.id %>"><%= tag.id %></a></td>
+          <td><%= tag.type_to_title_case %></td>
+        </tr>
+      <% end %>
+    </table>
+    </li>
 
-  <% for tag in @tags %>
-    <tr>
-      <td><a href="/tags/<%= tag.id %>"><%= tag.id %></a></td>
-      <td><%= tag.type_to_title_case %></td>
-    </tr>
-  <% end %>
-
-</table>
+  <li class="flex-actions">
+    <a href="/tags/new">New tag</a>
+  </li>
+</ul>
