@@ -8,7 +8,7 @@
     <form action="/purchases" method="post">
       <p>
       <label>
-      Select a merchant:
+      Select a payee:
         <select name="merchant_id">
           <% for merchant in @merchants %>
           <option value="<%= merchant.id %>"><%= merchant.name %></option>
@@ -17,7 +17,7 @@
       </label>
       <p>
       <label>
-        Select a tag:
+        Select a category:
         <select name="tag_id">
           <% for tag in @tags %>
           <option value="<%= tag.id %>"><%= tag.type %></option>

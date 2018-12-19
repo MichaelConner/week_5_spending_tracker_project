@@ -8,7 +8,7 @@ class User
   def initialize(options)
     @id = options['id'].to_i if options['id']
     @name = options['name']
-    @budget = options['budget']
+    @budget = '%.2f' % [options['budget'].to_f]
   end
 
   def save

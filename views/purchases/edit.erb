@@ -8,7 +8,7 @@
     <form action="/purchases/<%=@purchase.id%>" method="post">
       <p>
       <label>
-        Merchant:
+        Payee:
         <select name="merchant_id" selected= "<%= @purchase.merchant.name%>">
           <% for merchant in @merchants %>
             <% if merchant.name == @purchase.merchant.name %>
@@ -21,7 +21,7 @@
       </label>
       <p>
       <label>
-        Tag:
+        Category:
         <select name="tag_id" selected= "<%= @purchase.tag.type%>">
           <% for tag in @tags %>
             <% if tag.type == @purchase.tag.type %>

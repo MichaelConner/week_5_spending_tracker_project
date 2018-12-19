@@ -49,41 +49,41 @@ purchase7.save
 purchase8 = Purchase.new('merchant_id' => merchant3.id, 'tag_id' => tag5.id, 'amount' => 150, 'purchase_date' => 20180901)
 purchase8.save
 
-purchase9 = Purchase.new('merchant_id' => merchant1.id, 'tag_id' => tag1.id, 'amount' => 87.97, 'purchase_date' => 20181001)
+purchase9 = Purchase.new('merchant_id' => merchant1.id, 'tag_id' => tag1.id, 'amount' => 87.97, 'purchase_date' => 20181003)
 purchase9.save
-purchase10 = Purchase.new('merchant_id' => merchant1.id, 'tag_id' => tag1.id, 'amount' => 110.03, 'purchase_date' => 20181001)
+purchase10 = Purchase.new('merchant_id' => merchant1.id, 'tag_id' => tag1.id, 'amount' => 110.03, 'purchase_date' => 20181003)
 purchase10.save
-purchase11 = Purchase.new('merchant_id' => merchant2.id, 'tag_id' => tag2.id, 'amount' => 67.21, 'purchase_date' => 20181001)
+purchase11 = Purchase.new('merchant_id' => merchant2.id, 'tag_id' => tag2.id, 'amount' => 67.21, 'purchase_date' => 20181003)
 purchase11.save
-purchase12 = Purchase.new('merchant_id' => merchant3.id, 'tag_id' => tag2.id, 'amount' => 82.79, 'purchase_date' => 20181001)
+purchase12 = Purchase.new('merchant_id' => merchant3.id, 'tag_id' => tag2.id, 'amount' => 82.79, 'purchase_date' => 20181003)
 purchase12.save
-purchase13 = Purchase.new('merchant_id' => merchant4.id, 'tag_id' => tag3.id, 'amount' => 800.00, 'purchase_date' => 20181001)
+purchase13 = Purchase.new('merchant_id' => merchant4.id, 'tag_id' => tag3.id, 'amount' => 800.00, 'purchase_date' => 20181003)
 purchase13.save
-purchase14 = Purchase.new('merchant_id' => merchant5.id, 'tag_id' => tag4.id, 'amount' => 3600.00, 'purchase_date' => 20181001)
+purchase14 = Purchase.new('merchant_id' => merchant5.id, 'tag_id' => tag4.id, 'amount' => 3600.00, 'purchase_date' => 20181003)
 purchase14.save
-purchase15 = Purchase.new('merchant_id' => merchant6.id, 'tag_id' => tag5.id, 'amount' => 150, 'purchase_date' => 20181001)
+purchase15 = Purchase.new('merchant_id' => merchant6.id, 'tag_id' => tag5.id, 'amount' => 150, 'purchase_date' => 20181003)
 purchase15.save
-purchase16 = Purchase.new('merchant_id' => merchant3.id, 'tag_id' => tag5.id, 'amount' => 150, 'purchase_date' => 20181001)
+purchase16 = Purchase.new('merchant_id' => merchant3.id, 'tag_id' => tag5.id, 'amount' => 150, 'purchase_date' => 20181003)
 purchase16.save
 
-purchase17 = Purchase.new('merchant_id' => merchant1.id, 'tag_id' => tag1.id, 'amount' => 87.97, 'purchase_date' => 20181101)
+purchase17 = Purchase.new('merchant_id' => merchant1.id, 'tag_id' => tag1.id, 'amount' => 87.97, 'purchase_date' => 20181104)
 purchase17.save
-purchase18 = Purchase.new('merchant_id' => merchant1.id, 'tag_id' => tag1.id, 'amount' => 110.03, 'purchase_date' => 20181101)
+purchase18 = Purchase.new('merchant_id' => merchant1.id, 'tag_id' => tag1.id, 'amount' => 110.03, 'purchase_date' => 20181104)
 purchase18.save
-purchase19 = Purchase.new('merchant_id' => merchant2.id, 'tag_id' => tag2.id, 'amount' => 67.21, 'purchase_date' => 20181101)
+purchase19 = Purchase.new('merchant_id' => merchant2.id, 'tag_id' => tag2.id, 'amount' => 67.21, 'purchase_date' => 20181104)
 purchase19.save
-purchase20 = Purchase.new('merchant_id' => merchant3.id, 'tag_id' => tag2.id, 'amount' => 82.79, 'purchase_date' => 20181101)
+purchase20 = Purchase.new('merchant_id' => merchant3.id, 'tag_id' => tag2.id, 'amount' => 82.79, 'purchase_date' => 20181104)
 purchase20.save
-purchase21 = Purchase.new('merchant_id' => merchant4.id, 'tag_id' => tag3.id, 'amount' => 800.00, 'purchase_date' => 20181101)
+purchase21 = Purchase.new('merchant_id' => merchant4.id, 'tag_id' => tag3.id, 'amount' => 800.00, 'purchase_date' => 20181104)
 purchase21.save
-purchase22 = Purchase.new('merchant_id' => merchant5.id, 'tag_id' => tag4.id, 'amount' => 3600.00, 'purchase_date' => 20181101)
+purchase22 = Purchase.new('merchant_id' => merchant5.id, 'tag_id' => tag4.id, 'amount' => 3600.00, 'purchase_date' => 20181104)
 purchase22.save
-purchase23 = Purchase.new('merchant_id' => merchant6.id, 'tag_id' => tag5.id, 'amount' => 150, 'purchase_date' => 20181101)
+purchase23 = Purchase.new('merchant_id' => merchant6.id, 'tag_id' => tag5.id, 'amount' => 150, 'purchase_date' => 20181104)
 purchase23.save
-purchase24 = Purchase.new('merchant_id' => merchant3.id, 'tag_id' => tag5.id, 'amount' => 150, 'purchase_date' => 20181101)
+purchase24 = Purchase.new('merchant_id' => merchant3.id, 'tag_id' => tag5.id, 'amount' => 150, 'purchase_date' => 20181104)
 purchase24.save
 
-user1 = User.new('name' => 'Wint', 'budget' => 4444.44)
+user1 = User.new('name' => 'Wint', 'budget' => 4444.40)
 user1.save
 user2 = User.new('name' => 'Michael Conner', 'budget' => 22.37)
 user2.save
