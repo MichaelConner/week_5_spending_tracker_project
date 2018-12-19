@@ -1,10 +1,25 @@
-<p>Tag: <%= @purchase.tag.type_to_title_case %></p>
-<p>Merchant: <%= @purchase.merchant.name_to_title_case %></p>
-<p> Amount: £<%= @purchase.amount %> </p>
+<ul class = "flex-main">
+  <li class="flex-info">
+    <table>
+      <tr>
+        <td><span class="title_text">Merchant:</span><td>
+        <td><%= @purchase.merchant.name_to_title_case %></td>
+      </tr>
+      <tr>
+        <td><span class="title_text">Tag:</span></td>
+        <td><%= @purchase.tag.type_to_title_case %></td>
+      </tr>
+      <tr>
+        <td><span class="title_text">Amount: £</span></td>
+        <td><%= @purchase.amount %></td>
+      </tr>
+    </table>
+  </li>
 
-<p><a href="/purchases/<%= @purchase.id %>/edit">Edit</a></p>
-<p>
-  <form action="/purchases/<%= @purchase.id %>/delete" method="post">
-  <input type="submit" value="delete" />
-  </form>
-</p>
+  <li class="flex-actions">
+    <a href="/purchases/<%= @purchase.id %>/edit" class="edit">Edit</a>
+      <form action="/purchases/<%= @purchase.id %>/delete" method="post">
+        <input type="submit" value="delete" class="delete"/>
+      </form>
+  </li>
+</ul>

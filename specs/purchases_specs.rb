@@ -17,9 +17,14 @@ class PurchasesTest < MiniTest::Test
 
     @tag1 = Tag.new('type' => 'food')
     @tag1.save
+    @tag2 = Tag.new('type' => 'candles')
+    @tag2.save
 
     @purchase1 = Purchase.new('merchant_id' => @merchant1.id, 'tag_id' => @tag1.id, 'amount' => 50.02, 'purchase_date' => 20180901)
-    @purchase2 = Purchase.new('merchant_id' => @merchant1.id, 'tag_id' => @tag1.id, 'amount' => 87.97, 'purchase_date' => 20180901)
+    @purchase2 = Purchase.new('merchant_id' => @merchant1.id, 'tag_id' => @tag1.id, 'amount' => 87.97, 'purchase_date' => 20180902)
+    @purchase3 = Purchase.new('merchant_id' => @merchant3.id, 'tag_id' => @tag2.id, 'amount' => 50.02, 'purchase_date' => 20180901)
+    @purchase4 = Purchase.new('merchant_id' => @merchant3.id, 'tag_id' => @tag2.id, 'amount' => 87.97, 'purchase_date' => 20180902)
+
   end
 
   def test_purchase_has_amount
@@ -47,12 +52,84 @@ class PurchasesTest < MiniTest::Test
     assert_equal(true, @purchase1.id > 0)
   end
 
-  def test_can_find_all_purchasess
+  def test_can_find_all_purchases
     Purchase.delete_all
     @purchase1.save
     @purchase2.save
     assert_equal(@purchase1.id, Purchase.find_all[0].id)
     assert_equal(@purchase2.id, Purchase.find_all[1].id)
+  end
+
+  def test_can_find_all_purchases_in_reverse
+    Purchase.delete_all
+    @purchase1.save
+    @purchase2.save
+    assert_equal(@purchase2.id, Purchase.find_all_reverse[0].id)
+    assert_equal(@purchase1.id, Purchase.find_all_reverse[1].id)
+  end
+
+  def test_can_sum_all_purchases
+    Purchase.delete_all
+    @purchase1.save
+    @purchase2.save
+    assert_equal('137.99', Purchase.sum_all)
+  end
+
+  def test_can_find_all_purchases_by_merchant
+    Purchase.delete_all
+    @purchase3.save
+    @purchase4.save
+    assert_equal(@purchase3.id, Purchase.find_by_merchant(@merchant3.name)[0].id)
+    assert_equal(@purchase4.id, Purchase.find_by_merchant(@merchant3.name)[1].id)
+  end
+
+  def test_can_sum_all_purchases_by_merchant
+    Purchase.delete_all
+    @purchase3.save
+    @purchase4.save
+    assert_equal('137.99', Purchase.sum_all_merchant(@merchant3.name))
+  end
+
+  def test_can_find_all_purchases_by_tag
+    Purchase.delete_all
+    @purchase3.save
+    @purchase4.save
+    assert_equal(@purchase3.id, Purchase.find_by_tag(@tag2.type)[0].id)
+    assert_equal(@purchase4.id, Purchase.find_by_tag(@tag2.type)[1].id)
+  end
+
+  def test_can_sum_all_purchases_by_tag
+    Purchase.delete_all
+    @purchase3.save
+    @purchase4.save
+    assert_equal('137.99', Purchase.sum_all_tag(@tag2.type))
+  end
+
+  def test_can_find_all_purchases_by_year_and_month
+    Purchase.delete_all
+    @purchase3.save
+    @purchase4.save
+    assert_equal(@purchase3.id, Purchase.find_by_year_and_month('2018','09')[0].id)
+    assert_equal(@purchase4.id, Purchase.find_by_year_and_month('2018','09')[1].id)
+  end
+
+  def test_can_sum_all_purchases_by_month
+    Purchase.delete_all
+    @purchase3.save
+    @purchase4.save
+    assert_equal('137.99', Purchase.sum_all_month('2018','09'))
+  end
+
+  def test_can_find_a_merchant
+    Purchase.delete_all
+    @purchase1.save
+    assert_equal(@merchant1.id, (@purchase1.merchant).id)
+  end
+
+  def test_can_find_a_tag
+    Purchase.delete_all
+    @purchase1.save
+    assert_equal(@tag1.id, (@purchase1.tag).id)
   end
 
   def test_can_find_one_purchase_by_id
@@ -81,7 +158,5 @@ class PurchasesTest < MiniTest::Test
     @purchase1.save
     assert_equal('100.22', Purchase.find_all[0].amount)
   end
-
-
 
 end

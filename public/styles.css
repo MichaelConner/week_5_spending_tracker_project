@@ -4,13 +4,94 @@ body {
   font-family: 'Roboto', sans-serif;;
 }
 
+span.title_text{
+  font-family: 'Major Mono Display', monospace;
+  font-size: 16pt;
+  font-weight: bold;
+}
+
 a {
   color: inherit;
   text-decoration: none;
 }
 
 a.new {
-  text-decoration: underline;
+  background-color: #08090A;
+  color: #FCEFEF;
+  padding: 14px 25px;
+  width: 150px
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a.edit {
+  background-color: #08090A;
+  color: #FCEFEF;
+  font-size: 16pt;
+  padding: 10px 10px;
+  width: 140px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a.sort {
+  color: #08090A;
+  background-color: #FCEFEF;
+  border-width: medium;
+  border-color: #08090A;
+  font-size: 12pt;
+  padding: 5px 5px;
+  width: 250px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+input.purchases_filter{
+  background-color: #08090A;
+  color: #FCEFEF;
+  font-size: 10pt;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+input.delete {
+  background-color: #C33C54;
+  color: #FCEFEF;
+  font-size: 16pt;
+  padding: 10px 10px;
+  width: 150px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+input.submit {
+  background-color: #08090A;
+  color: #FCEFEF;
+  font-size: 12pt;
+  padding: 10px 10px;
+  width: 140px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  width: 120px;
+  justify-content: center;
+}
+
+.dropdown-content {
+  background-color: #A7C6DA;
+  width: 250px;
+  padding: 8px 8px;
 }
 
 ul {
@@ -19,6 +100,11 @@ ul {
 
 h1 {
   font-family: 'Major Mono Display', monospace;
+}
+
+h2 {
+  font-family: 'Major Mono Display', monospace;
+  font-size: 16pt;
 }
 
 .flex-nav {
@@ -52,8 +138,9 @@ h1 {
   display: flex;
   width: 70%;
   height: 100%;
+  min-height: 400px;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   background: #FCEFEF;
   color: #08090A;
   text-align: center;
@@ -62,13 +149,10 @@ h1 {
 .flex-actions {
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
   width: 29%;
-  background: #93A8AC;
+  background: #A7C6DA;
   color: #08090A;
-  text-align: center;
-}
-
-.button_new {
-
+  text-align: left;
 }

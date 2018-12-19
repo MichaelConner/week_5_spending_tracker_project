@@ -1,13 +1,22 @@
 require('minitest/autorun')
 require('minitest/rg')
 
+require_relative('../models/merchants')
+require_relative('../models/purchases')
 require_relative('../models/tags')
 
 class TagsTest < MiniTest::Test
 
   def setup
     @tag1 = Tag.new('type' => 'entertainment')
+    @tag1.save
     @tag2 = Tag.new('type' => 'travel')
+
+    @merchant1 = Merchant.new('name' => 'vodafone')
+    @merchant1.save
+
+    @purchase1 = Purchase.new('merchant_id' => @merchant1.id, 'tag_id' => @tag1.id, 'amount' => 50.02, 'purchase_date' => 20180901)
+    @purchase2 = Purchase.new('merchant_id' => @merchant1.id, 'tag_id' => @tag1.id, 'amount' => 87.97, 'purchase_date' => 20180901)
   end
 
   def test_tag_has_name
@@ -15,7 +24,7 @@ class TagsTest < MiniTest::Test
   end
 
   def test_tag_has_id__false
-    assert_nil(@tag1.id)
+    assert_nil(@tag2.id)
   end
 
   def test_tag_has_id__true
@@ -58,16 +67,11 @@ class TagsTest < MiniTest::Test
     assert_equal('candles', Tag.find_all[0].type)
   end
 
-  # def test_view_all_tags
-  #   Purchase.delete_all
-  #   Merchant.delete_all
-  #   Tag.delete_all
-  #   @merchant3.save
-  #   @tag1.save
-  #   @purchase1.save
-  #   @purchase2.save
-  #   assert_equal('food', @merchant3.tags[0])
-  # end
+  def test_view_all_merchants
+    @purchase1.save
+    @purchase2.save
+    assert_equal('vodafone', (@tag1.merchants[0]).name)
+  end
 
   def test_type_to_title_case
     assert_equal('Travel', @tag2.type_to_title_case)

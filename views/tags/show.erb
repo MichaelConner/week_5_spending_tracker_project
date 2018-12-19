@@ -1,8 +1,13 @@
-<p>Tag: <%= @tag.type_to_title_case %></p>
+<ul class = "flex-main">
+  <li class="flex-info">
+    <h1>Tag: <%= @tag.type_to_title_case %></h1>
+  </li>
 
-<p><a href="/tags/<%= @tag.id %>/edit">Edit</a></p>
-<p>
-  <form action="/tags/<%= @tag.id %>/delete" method="post">
-  <input type="submit" value="delete" />
-  </form>
-</p>
+  <li class="flex-actions">
+    <a href="/tags/<%= @tag.id %>/edit" class="edit">Edit</a>
+      <p>
+        <form action="/tags/<%= @tag.id %>/delete" method="post">
+          <input type="submit" value="Delete" class="delete"/>
+        </form>
+  </li>
+</ul>

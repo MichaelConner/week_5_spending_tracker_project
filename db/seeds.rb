@@ -12,7 +12,7 @@ merchant1 = Merchant.new('name' => 'Asda')
 merchant1.save
 merchant2 = Merchant.new('name' => 'Vodafone')
 merchant2.save
-merchant3 = Merchant.new('name' => 'BT')
+merchant3 = Merchant.new('name' => 'Sky')
 merchant3.save
 merchant4 = Merchant.new('name' => 'bank of scotland')
 merchant4.save
@@ -83,9 +83,9 @@ purchase23.save
 purchase24 = Purchase.new('merchant_id' => merchant3.id, 'tag_id' => tag5.id, 'amount' => 150, 'purchase_date' => 20181101)
 purchase24.save
 
-user1 = User.new('name' => 'Michael conner', 'budget' => 100.00)
+user1 = User.new('name' => 'Wint', 'budget' => 4444.44)
 user1.save
-user2 = User.new('name' => 'dave Conner', 'budget' => 200.45)
+user2 = User.new('name' => 'Michael Conner', 'budget' => 22.37)
 user2.save
 
 #TESTS

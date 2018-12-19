@@ -1,10 +1,14 @@
-<h1>Edit Tag</h1>
+<ul class = "flex-main">
+  <li class="flex-info">
+      <h1>Edit Tag</h1>
+      <h2>Just make your changes over there on the right and then click 'change'</h2>
+  </li>
 
-<form action="/tags/<%=@tag.id%>" method="post">
-
-  <label for="type">Type:</label>
-    <input type="text" name="type" id="tag.type" value="<%= @tag.type %>"/>
-
-    <input type="submit" value="submit changes" />
-
-</form>
+  <li class="flex-actions">
+    <form action="/tags/<%=@tag.id%>" method="post">
+      <label for="type">Type:</label>
+        <input type="text" name="type" id="tag.type" value="<%= @tag.type %>"/>
+        <input type="submit" value="Change" class="submit"/>
+    </form>
+  </li>
+</ul>

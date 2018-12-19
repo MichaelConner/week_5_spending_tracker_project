@@ -7,7 +7,7 @@
           <th>Merchant</th>
           <th>Tag</th>
           <th>Amount</th>
-          <th>Purchase date</th>
+          <th>Purchase Date</th>
         </tr>
         <% for purchase in @purchases %>
         <tr>
@@ -24,42 +24,46 @@
   <li class="flex-actions">
     <table>
       <tr>
-        <th>Budget</th>
-        <th>Amount Spent</th>
-        <th>Amount Left</th>
+        <td>Your budget:</td>
+        <td>£<%= @user.budget %></td>
       </tr>
       <tr>
-        <td>£<%= @user.budget %></td>
+        <td>You have spent:</td>
         <td>£<%= Purchase.sum_all %></td>
+      </tr>
+      <tr>
+        <td>You now have left:</td>
         <td>£<%= (@user.budget).to_f - (Purchase.sum_all).to_f  %></td>
       </tr>
     </table>
 
     <p>
 
-    <a href="/purchases/new">New purchase</a>
-    <p><a href="/purchases">sort by oldest</a>
-    <p><a href="/purchases/reverse">sort by newest</a>
+    <p><a href="/purchases/new" class="new">Create a new purchase</a>
+    <p>
+    <p><a href="/purchases" class="sort">See all from oldest to newest</a>
+    <p><a href="/purchases/reverse" class="sort">See all from newest to oldest</a>
 
     <p>
 
-    <form action="/purchases/merchant/:merchant" method="get">
-      <select name="merchant_name">
+    <form action="/purchases/merchant/:merchant" method="get" class="dropdown-content">
+      <input type='submit' value="See all from:" class="purchases_filter">
+      <select name="merchant_name" class="dropdown">
         <% for merchant in @merchants %>
         <option value="<%= merchant.name %>"><%= merchant.name_to_title_case %></option>
         <% end %>
       </select>
-      <input type='submit' value="filter by merchant">
     </form>
 
     <p>
-      <form action="/purchases/tag/:tag" method="get">
+
+      <form action="/purchases/tag/:tag" method="get" class="dropdown-content">
+        <input type='submit' value="See all for:" class="purchases_filter">
         <select name="tag_type">
           <% for tag in @tags %>
           <option value="<%= tag.type %>"><%= tag.type_to_title_case %></option>
           <% end %>
         </select>
-        <input type='submit' value="filter by tag">
       </form>
   </li>
 </ul>

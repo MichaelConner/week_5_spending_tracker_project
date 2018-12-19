@@ -9,13 +9,23 @@ class MerchantsTest < MiniTest::Test
 
   def setup
     @merchant1 = Merchant.new('name' => 'amazon')
+    @merchant1.save
     @merchant2 = Merchant.new('name' => 'Lothian Bus')
+    @merchant2.save
     @merchant3 = Merchant.new('name' => 'bank of scotland')
+    @merchant3.save
+    @merchant4 = Merchant.new('name' => 'vodafone')
 
     @tag1 = Tag.new('type' => 'food')
+    @tag1.save
+    @tag2 = Tag.new('type' => 'travel')
 
-    @purchase1 = Purchase.new('merchant_id' => 131, 'tag_id' => 19, 'amount' => 50.02, 'purchase_date' => 20180901)
-    @purchase2 = Purchase.new('merchant_id' => 131, 'tag_id' => 19, 'amount' => 87.97, 'purchase_date' => 20180901)
+    @purchase1 = Purchase.new('merchant_id' => @merchant1.id, 'tag_id' => @tag1.id, 'amount' => 50.02, 'purchase_date' => 20180901)
+    @purchase2 = Purchase.new('merchant_id' => @merchant1.id, 'tag_id' => @tag1.id, 'amount' => 87.97, 'purchase_date' => 20180901)
+
+    @purchase3 = Purchase.new('merchant_id' => 131, 'tag_id' => 19, 'amount' => 50.02, 'purchase_date' => 20180901)
+    @purchase4 = Purchase.new('merchant_id' => 131, 'tag_id' => 19, 'amount' => 50.02, 'purchase_date' => 20180901)
+
   end
 
   def test_merchant_has_name
@@ -23,7 +33,7 @@ class MerchantsTest < MiniTest::Test
   end
 
   def test_merchant_has_id__false
-    assert_nil(@merchant1.id)
+    assert_nil(@merchant4.id)
   end
 
   def test_merchant_has_id__true
@@ -66,16 +76,11 @@ class MerchantsTest < MiniTest::Test
     assert_equal('Starbucks', Merchant.find_all[0].name)
   end
 
-  # def test_view_all_tags
-  #   Purchase.delete_all
-  #   Merchant.delete_all
-  #   Tag.delete_all
-  #   @merchant3.save
-  #   @tag1.save
-  #   @purchase1.save
-  #   @purchase2.save
-  #   assert_equal('food', @merchant3.tags[0])
-  # end
+  def test_view_all_tags
+    @purchase1.save
+    @purchase2.save
+    assert_equal('food', (@merchant1.tags[0]).type)
+  end
 
   def test_name_to_title_case
     assert_equal('Amazon', @merchant1.name_to_title_case)

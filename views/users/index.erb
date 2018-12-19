@@ -1,19 +1,24 @@
 <ul class = "flex-main">
   <li class="flex-info">
-    <h3>User Name: <%= @user.name_to_title_case %></h3>
-    <h3>Budget: £<%= @user.budget %></h3>
+    <h2>This is your dashboard page. Your details are below:</h2>
+    <p>
+    <p>
+    <h3>Your Name: <%= @user.name_to_title_case %></h3>
+    <h3>Your Budget: £<%= @user.budget %></h3>
   </li>
 
   <li class="flex-actions">
     <table>
       <tr>
-        <th>Budget</th>
-        <th>Amount Spent</th>
-        <th>Amount Left</th>
+        <td>Your budget:</td>
+        <td>£<%= @user.budget %></td>
       </tr>
       <tr>
-        <td>£<%= @user.budget %></td>
+        <td>You have spent:</td>
         <td>£<%= Purchase.sum_all %></td>
+      </tr>
+      <tr>
+        <td>You now have left:</td>
         <td>£<%= (@user.budget).to_f - (Purchase.sum_all).to_f  %></td>
       </tr>
     </table>

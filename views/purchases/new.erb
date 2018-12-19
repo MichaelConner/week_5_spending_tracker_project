@@ -1,30 +1,38 @@
-<h1>This page will let you add a new purchase</h1>
+<ul class = "flex-main">
+  <li class="flex-info">
+      <h1>This page will let you add a new purchase</h1>
+      <h2>Just enter all of the details over there on the right and then click 'add'</h2>
+  </li>
 
-<form action="/purchases" method="post">
+  <li class="flex-actions">
+    <form action="/purchases" method="post">
+      <p>
+      <label>
+      Select a merchant:
+        <select name="merchant_id">
+          <% for merchant in @merchants %>
+          <option value="<%= merchant.id %>"><%= merchant.name %></option>
+          <% end %>
+        </select>
+      </label>
+      <p>
+      <label>
+        Select a tag:
+        <select name="tag_id">
+          <% for tag in @tags %>
+          <option value="<%= tag.id %>"><%= tag.type %></option>
+          <% end %>
+        </select>
+      </label>
+      <p>
+      <label for="amount">Add an amount:</label>
+      <input type="text" name="amount" id="amount" required/>
+      <p>
+      <label for="purchase_date">Add a date:</label>
+      <input type="date" name="purchase_date" id="purchase_date" required/>
+      <p>
+      <input type='submit' value="Add" class="submit">
+    </form>
 
-  <label>
-  Select a merchant:
-    <select name="merchant_id">
-      <% for merchant in @merchants %>
-      <option value="<%= merchant.id %>"><%= merchant.name %></option>
-      <% end %>
-    </select>
-  </label>
-
-  <label>
-    Select a tag:
-    <select name="tag_id">
-      <% for tag in @tags %>
-      <option value="<%= tag.id %>"><%= tag.type %></option>
-      <% end %>
-    </select>
-  </label>
-
-  <label for="amount">Add an amount:</label>
-  <input type="text" name="amount" id="amount" required/>
-
-  <label for="purchase_date">Add a date:</label>
-  <input type="date" name="purchase_date" id="purchase_date" required/>
-
-  <input type='submit' value="Add purchase">
-</form>
+  </li>
+</ul>
