@@ -3,11 +3,11 @@ require('minitest/rg')
 
 require_relative('../models/users')
 
-class UsersTest < MiniTest::Test
+class UserTest < MiniTest::Test
 
   def setup
     @user1 = User.new('name' => 'Michael', 'budget' => 100.00)
-    @user2 = User.new('name' => 'Ian', 'budget' => 200.45)
+    @user2 = User.new('name' => 'dan', 'budget' => 200.45)
   end
 
   def test_user_has_name
@@ -22,42 +22,43 @@ class UsersTest < MiniTest::Test
     assert_nil(@user1.id)
   end
 
-  def test_merchant_has_id__true
+  def test_can_find_all_users
+    User.delete_all
     @user1.save
-    assert_equal(true, @user1.id > 0)
+    @user2.save
+    assert_equal(@user1.id, User.find_all[0].id)
+    assert_equal(@user2.id, User.find_all[1].id)
   end
 
-  # def test_can_find_all_merchants
-  #   Merchant.delete_all
-  #   @merchant1.save
-  #   @merchant2.save
-  #   assert_equal([@merchant1, @merchant2], Merchant.find_all)
-  # end
-  #
-  # def test_can_find_one_merchant_by_id
-  #   Merchant.delete_all
-  #   @merchant1.save
-  #   assert_equal(@merchant1, Merchant.find_by_id(@merchant1.id))
-  # end
+  def test_can_find_one_user_by_id
+    User.delete_all
+    @user1.save
+    assert_equal(@user1.id, User.find_by_id(@user1.id).id)
+  end
 
   def test_can_delete_all_users
+    @user1.save
     @user2.save
     User.delete_all
     assert_equal([], User.find_all)
   end
 
-  # def test_can_delete_one_merchant
-  #   @merchant2.save
-  #   Merchant.delete_by_id(@merchant2.id)
-  #   assert_true(,)
-  # end
+  def test_can_delete_one_user
+    User.delete_all
+    @user2.save
+    User.delete_by_id(@user2.id)
+    assert_equal([], User.find_all)
+  end
 
-  # def test_merchant_can_update
-  #
-  # end
+  def test_user_can_update
+    User.delete_all
+    @user1.name = 'Wint'
+    @user1.save
+    assert_equal('Wint', User.find_all[0].name)
+  end
 
-  # def test_find_tags
-  #
-  # end
+  def test_name_to_title_case
+    assert_equal('Dan', @user2.name_to_title_case)
+  end
 
 end

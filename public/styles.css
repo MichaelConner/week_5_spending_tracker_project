@@ -1,20 +1,30 @@
 body {
   background-color: #517664;
   color: #FCEFEF;
-  font-family: 'garamond', serif;
+  font-family: 'Roboto', sans-serif;;
 }
 
 a {
   color: inherit;
+  text-decoration: none;
+}
+
+a.new {
+  text-decoration: underline;
 }
 
 ul {
   list-style-type: none;
 }
 
+h1 {
+  font-family: 'Major Mono Display', monospace;
+}
+
 .flex-nav {
   display: flex;
   justify-content: center;
+  font-family: 'Major Mono Display', monospace;
 }
 
 .flex-ul {
@@ -46,7 +56,7 @@ ul {
   justify-content: flex-start;
   background: #FCEFEF;
   color: #08090A;
-  text-align: left;
+  text-align: center;
 }
 
 .flex-actions {
@@ -56,4 +66,9 @@ ul {
   width: 29%;
   background: #93A8AC;
   color: #08090A;
+  text-align: center;
+}
+
+.button_new {
+
 }
